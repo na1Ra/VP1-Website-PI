@@ -1,14 +1,21 @@
 <html>
     <head>
+        <body style="background-color:black;">
         <meta http-equiv="refresh" content="5">
+        <style>
+            .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+        </style>
     </head>
-    <body><font face="Mono Sans">Aktuelle Temperatur:</body><br>
         <body>
-        
-        <iframe p src="output.html" style="height: 31.5%;width:53%;"></iframe>
-
+            <font face="Mono Sans" color="white">Aktuelle Temperatur:</font><br>
+            <div class="center">
+                <iframe src="output.html" style="height: 31.5%;width:53%;"></iframe>
+            </div>
         </body>
-        <div style="background-color:lightblue; width:200px; height:100px;"></div>
-        <div style="background-color:lightgreen; width:200px; height:100px;"></div>
-
+    </body>    
 </html>

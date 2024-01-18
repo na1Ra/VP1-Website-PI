@@ -6,7 +6,7 @@ def read_dht_sensor(pin):
     # DHT-Sensor initialisieren
     dht_sensor = adafruit_dht.DHT11(pin)
 
-    # Dateipfad fÃ¼r die Speicherung der Daten
+    # Dateipfad für die Speicherung der Daten
     data_file_path = '/home/admin/GIT/VP1-Website-PI/data.txt'
 
     # Liste fÃ¼r die Speicherung der letzten 2 EintrÃ¤ge
@@ -21,24 +21,24 @@ def read_dht_sensor(pin):
             temperature_c = dht_sensor.temperature
             humidity = dht_sensor.humidity
 
-            # Werte zur Liste hinzufÃ¼gen und Formatieren
+            # Werte zur Liste hinzufügen und Formatieren
             data.append(f'Temperature={temperature_c};Humidity={humidity}')
 
             # Wenn mehr als 2 EintrÃ¤ge in der Liste sind, den Ã¤ltesten Eintrag entfernen
             if len(data) > 2:
                 data.pop(0)
 
-            # Durchschnitt berechnen und zur Liste hinzufÃ¼gen
+            # Durchschnitt berechnen und zur Liste hinzufügen
             if len(data) == 2:
                 avg_temperature = sum(entry.temperature for entry in data) / 2
                 avg_humidity = sum(entry.humidity for entry in data) / 2
                 average_data.append(f'Average_Temperature={avg_temperature};Average_Humidity={avg_humidity}')
 
-            # Wenn mehr als 2 EintrÃ¤ge im Durchschnitts-Daten sind, den Ã¤ltesten Eintrag entfernen
+            # Wenn mehr als 2 Einträge im Durchschnitts-Daten sind, den Ältesten Eintrag entfernen
             if len(average_data) > 2:
                 average_data.pop(0)
 
-            # HTML-Datei Ã¶ffnen, den Hintergrund erstellen und die Daten schreiben
+            # HTML-Datei Öffnen, den Hintergrund erstellen und die Daten schreiben
             with open('/home/admin/GIT/VP1-Website-PI/output.html', 'w') as f:
                 f.write('<html><body style="background-color:black;">')
                 for entry in data + average_data:
@@ -67,7 +67,7 @@ def read_dht_sensor(pin):
                 # Wenn die Datei nicht gefunden wird, einfach fortfahren
                 pass
 
-        # Wartezeit erhÃ¶hen
+        # Wartezeit erhöhen
         time.sleep(5)
 
 # Aufruf der Funktion

@@ -16,7 +16,8 @@ def read_dht_sensor(pin):
             humidity = dht_sensor.humidity
 
             # Werte und Uhrzeit zur Liste hinzufügen
-            data.append(f'<div style="background-color:gray; width:100%; height:20%; position:relative;"><div style="background-color:red; width:{temperature_c}%; height:100%;"></div><span style="position:absolute; left:5px; color:white; font-family: URW Gothic Book ;">{temperature_c}°C</span></div>;<div style="background-color:gray; width:100%; height:20%; position:relative;"><div style="background-color:blue; width:{humidity}%; height:100%;"></div><span style="position:absolute; left:5px; color:white; font-family: URW Gothic Book ;">{humidity}%</span></div>')
+            data.append(f'<div style="background-color:gray; width:100%; height:20%; position:relative;"><div style="background-color:red; width:{temperature_c}%; height:100%;"></div><span style="position:absolute; left:5px; color:white; font-family: Arial ;">{temperature_c}°C</span></div>;
+            <div style="background-color:gray; width:100%; height:20%; position:relative;"><div style="background-color:blue; width:{humidity}%; height:100%;"></div><span style="position:absolute; left:5px; color:white; font-family: Arial ;">{humidity}%</span></div>')
 
             # Wenn mehr als 2 Einträge in der Liste sind, den ältesten Eintrag entfernen
             if len(data) > 1:

@@ -7,7 +7,7 @@ def read_dht_sensor(pin):
     dht_sensor = adafruit_dht.DHT11(pin)
 
     # Dateipfad fÃ¼r die Speicherung der Daten
-    data_file_path = 'data.txt'
+    data_file_path = '/home/admin/GIT/VP1-Website-PI/data.txt'
 
     # Liste fÃ¼r die Speicherung der letzten 2 EintrÃ¤ge
     data = []
@@ -39,7 +39,7 @@ def read_dht_sensor(pin):
                 average_data.pop(0)
 
             # HTML-Datei Ã¶ffnen, den Hintergrund erstellen und die Daten schreiben
-            with open('/var/www/html/output.html', 'w') as f:
+            with open('/home/admin/GIT/VP1-Website-PI/output.html', 'w') as f:
                 f.write('<html><body style="background-color:black;">')
                 for entry in data + average_data:
                     f.write(f'<div>{entry}</div>')

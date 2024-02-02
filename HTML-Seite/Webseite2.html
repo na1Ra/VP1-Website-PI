@@ -1,0 +1,115 @@
+<html>
+    <body style="background-color:#02285E">
+    <head>
+        <h6>
+            <font face="Calibri" color=#ffffff>
+            <pre><h3>Marc Stoppelkamp, Bastien Hanel                                                                                Documentation der HTML Seite                                                                                                  FS-22D</h3></pre>
+            
+        </h6>
+
+        <title>
+            HTML docu.doc
+        </title>
+
+    </head>
+
+                        <body>
+                                <pre style="background-color: #454545; padding: 1px;"><code>
+
+                        
+                        <pre>
+&lt;html&gt;
+    &lt;body style="background-color:#02285E"&gt;
+    &lt;head&gt;
+        &lt;h6&gt;
+            &lt;font face="Calibri" color=#ffffff&gt;
+            &lt;pre&gt;&lt;h3&gt;Marc Stoppelkamp, Bastien Hanel                           Documentation Temperatursensor                                                                         FS-22D</h3></pre>
+            
+        &lt;/h6&gt;
+
+        &lt;title&gt;
+            Tempsensor.doc
+        &lt;/title&gt;
+
+    &lt;/head&gt;
+
+
+            &lt;body&gt;&lt;font color=#ffffff&gt;
+                &lt;h2&gt;Dokumentation:&lt;/h2&gt;
+                In dieser Dokumentation beschreiben wir die Installation des Apacheservers und des Temperatursensors.
+                &lt;/font&gt;
+                
+
+
+
+
+                 
+                &lt;pre style="background-color: #454545; padding: 1px;"&gt;&lt;code&gt;       
+
+&lt;font color=#ffffff&gt;
+&lt;font color=#c60000&gt;import&lt;/font&gt; adafruit_dht
+&lt;font color=#c60000&gt;import&lt;/font&gt; board
+&lt;font color=#c60000&gt;import&lt;/font&gt; time
+&lt;font color=#c60000&gt;from&lt;/font&gt; datetime &lt;font color=#c60000&gt;import&lt;/font&gt; datetime
+
+&lt;font color=#c60000&gt;def&lt;/font&gt; &lt;font color=#B86CD6&gt;read_dht_sensor&lt;/font&gt;(pin):
+    &lt;font color=#b5b5b5&gt;# DHT-Sensor initialisieren&lt;/font&gt;
+    dht_sensor = adafruit_dht.&lt;font color=#ffa600&gt;DHT11&lt;/font&gt;(pin)
+
+    &lt;font color=#b5b5b5&gt;# Liste für die Speicherung der letzten 2 Einträge &lt;/font&gt;
+    data &lt;font color=#006ecc&gt;=&lt;/font&gt; []
+
+    &lt;font color=#c60000&gt;while&lt;/font&gt; &lt;font color=#006ecc&gt;True&lt;/font&gt;:
+        &lt;font color=#c60000&gt;try&lt;/font&gt;:
+        &lt;font color=#b5b5b5&gt;# Temperatur und Luftfeuchtigkeit auslesen&lt;/font&gt;
+            temperature_c &lt;font color=#006ecc&gt;=&lt;/font&gt; dht_sensor.temperature
+            humidity &lt;font color=#006ecc&gt;=&lt;/font&gt; dht_sensor.humidity
+
+            &lt;font color=#b5b5b5&gt;# Werte und Uhrzeit zur Liste hinzufügen&lt;/font&gt;
+            data.&lt;font color=#B86cD6&gt;append&lt;/font&gt;(&lt;font color=#add8e6&gt;'&amp;lt;div&amp;gt; style="background-color:gray; width:100%; height:20%; position:relative;">div style="background-color:red; width:&lt;/font&gt;{temperature_c}
+                        &lt;font color=#add8e6&gt;%; height:100%;">/div&gt;span style="position:absolute; left:5px; color:white; font-family: URW Gothic Book ;"&lt;/font&gt;{temperature_c}
+                        &lt;font color=#add8e6&gt;°C/span&gt;/div&gt;;div style="background-color:gray; width:100%; height:20%; position:relative;">div style="background-color:blue; width:&lt;/font&gt;{humidity}
+                        &lt;font color=#add8e6&gt;%; height:100%;">/div&gt;span style="position:absolute; left:5px; color:white; font-family: URW Gothic Book ;"&lt;/font&gt;{humidity}&lt;font color=#add8e6&gt;%/span&gt;&amp;lt;/div'&amp;gt;&lt;/font&gt;)
+
+            &lt;font color=#b5b5b5&gt;# Wenn mehr als 2 Einträge in der Liste sind, den ältesten Eintrag entfernen&lt;/font&gt;
+            &lt;font color=#c60000&gt;if&lt;/font&gt; &lt;font color=#B86cD6&gt;len&lt;/font&gt;(data) &lt;font color=#006ecc&gt;&gt; 1&lt;/font&gt;:
+                data.&lt;font color=#B86cD6&gt;pop&lt;/font&gt;(&lt;font color=#006ecc&gt;0&lt;/font&gt;)
+
+            &lt;font color=#b5b5b5&gt;# HTML-Datei öffnen und die Daten schreiben&lt;/font&gt;
+            &lt;font color=#c60000&gt;with&lt;/font&gt; &lt;font color=#B86cD6&gt;open&lt;/font&gt;(&lt;font color=#add8e6&gt;'/var/www/html/output.html'&lt;/font&gt;,&lt;font color=#add8e6&gt; 'w'&lt;/font&gt;) &lt;font color=#c60000&gt;as&lt;/font&gt; f:
+                f.&lt;font color=#B86cD6&gt;write&lt;/font&gt;(&lt;font color=#add8e6&gt;'html&gt;body style="background-color:black;"&gt;'&lt;/font&gt;)
+                &lt;font color=#c60000&gt;for&lt;/font&gt; entry &lt;font color=#006ecc&gt;in&lt;/font&gt; data:
+                    f.&lt;font color=#B86cD6&gt;write&lt;/font&gt;(entry)
+                f.&lt;font color=#B86cD6&gt;write&lt;/font&gt;(&lt;font color=#add8e6&gt;'/body&gt;/html&gt;'&lt;/font&gt;)
+
+            &lt;font color=#c60000&gt;except&lt;/font&gt; &lt;font color=#ffa600&gt;RuntimeError&lt;/font&gt; &lt;font color=#c60000&gt;as&lt;/font&gt; e:
+            &lt;font color=#b5b5b5&gt;# Fehlermeldung ausgeben&lt;/font&gt;
+            &lt;font color=#B86cD6&gt;print&lt;/font&gt;(&lt;font color=#add8e6&gt;'Fehler beim Auslesen des Sensors:&lt;/font&gt; {e}&lt;font color=#add8e6&gt;'"&lt;/font&gt;)
+
+                &lt;font color=#b5b5b5&gt;# Sensor neu starten&lt;/font&gt;
+                dht_sensor.&lt;font color=#B86cD6&gt;exit&lt;/font&gt;()
+                dht_sensor &lt;font color=#006ecc&gt;=&lt;/font&gt; adafruit_dht.&lt;font color=#ffa600&gt;DHT11&lt;/font&gt;(pin)
+
+            &lt;font color=#b5b5b5&gt;# Wartezeit erhöhen&lt;/font&gt;
+            time.&lt;font color=#B86cD6&gt;sleep&lt;/font&gt;(&lt;font color=#006ecc&gt;5&lt;/font&gt;)
+
+            &lt;font color=#b5b5b5&gt;# Beispielaufruf der Funktion&lt;/font&gt;
+&lt;font color=#B86cD6&gt;read_dht_sensor&lt;/font&gt;(board.&lt;font color=#ffa600&gt;D4&lt;/font&gt;)
+
+&lt;/font&gt;
+                &lt;/code&gt;&lt;/pre&gt;
+
+                &lt;/font&gt;
+            body&gt;
+        &lt;/body&gt;
+&lt;html&gt;
+</code>
+
+
+
+
+
+                        </body>
+
+
+</html>

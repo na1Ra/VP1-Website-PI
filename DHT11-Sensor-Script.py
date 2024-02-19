@@ -25,7 +25,7 @@ def read_dht_sensor(pin):
 
             # HTML-Datei öffnen und die Daten schreiben
             with open('/var/www/html/output.html', 'w') as f:
-                f.write('<html><body style="background-color:black;">')
+                f.write('<html><head><meta charset="utf-8"></head><body style="background-color:black;">')
                 for entry in data:
                     f.write(entry)
                 f.write('</body></html>')

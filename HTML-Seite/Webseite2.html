@@ -75,24 +75,24 @@
             temperature_c &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#006ecc&gt;=&lt;/<font color=#00ff00>font</font>&gt; dht_sensor.temperature
             humidity &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#006ecc&gt;=&lt;/<font color=#00ff00>font</font>&gt; dht_sensor.humidity
 
-            &lt;<font color=#00ff00>font</font> color=#b5b5b5&gt;# Werte und Uhrzeit zur Liste hinzufügen&lt;/<font color=#00ff00>font</font>&gt;
-            data.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;append&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#add8e6&gt;'&lt;div style="background-color:gray; width:100%; height:20%; position:relative;"&gt;
-                &lt;div style="background-color:red; width:&lt;/<font color=#00ff00>font</font>&gt;{temperature_c}&lt;<font color=#00ff00>font</font> color=#add8e6&gt;%; height:100%;"&gt;&lt;/div&gt;
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# Werte und Uhrzeit zur Liste hinzufügen&lt;/<font color=#00ff00>font</font>&gt;
+            data.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;append&lt;/<font color=#00ff00>font</font>&gt;&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;'&lt;div style="background-color:gray; width:100%; height:20%; position:relative;"&gt;
+                &lt;div style="background-color:red; width:&lt;/<font color=#00ff00>font</font>&gt;{temperature_c}&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;%; height:100%;"&gt;&lt;/div&gt;
                 &lt;span style="position:absolute; left:5px; color:white; font-family: URW Gothic Book ;"&gt;&lt;/<font color=#00ff00>font</font>&gt;{temperature_c}
-                &lt;<font color=#00ff00>font</font> color=#add8e6&gt;°C&lt;/span&gt;&lt;/div&gt;&lt;div style="background-color:gray; width:100%; height:20%; position:relative;"&gt;&lt;div style="background-color:blue; width:&lt;/<font color=#00ff00>font</font>&gt;{humidity}
-                &lt;<font color=#00ff00>font</font> color=#add8e6&gt;%; height:100%;"&gt;&lt;/div&gt;&lt;span style="position:absolute; left:5px; color:white; font-family: URW Gothic Book ;"&gt;&lt;/<font color=#00ff00>font</font>&gt;
-                {humidity}&lt;<font color=#00ff00>font</font> color=#add8e6&gt;%&lt;/span&gt;&lt;/div'&gt;&lt;/<font color=#00ff00>font</font>&gt;)
+                &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;°C&lt;/span&gt;&lt;/div&gt;&lt;div style="background-color:gray; width:100%; height:20%; position:relative;"&gt;&lt;div style="background-color:blue; width:&lt;/<font color=#00ff00>font</font>&gt;{humidity}
+                &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;%; height:100%;"&gt;&lt;/div&gt;&lt;span style="position:absolute; left:5px; color:white; font-family: URW Gothic Book ;"&gt;&lt;/<font color=#00ff00>font</font>&gt;
+                {humidity}&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;%&lt;/span&gt;&lt;/div'&gt;&lt;/<font color=#00ff00>font</font>&gt;)
 
 
                     
 
-            &lt;<font color=#00ff00>font</font> color=#b5b5b5&gt;# Wenn mehr als 2 Einträge in der Liste sind, den ältesten Eintrag entfernen&lt;/<font color=#00ff00>font</font>&gt;
-            &lt;<font color=#00ff00>font</font> color=#c60000&gt;if&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> color=#B86cD6&gt;len&lt;/<font color=#00ff00>font</font>&gt;(data) &lt;<font color=#00ff00>font</font> color=#006ecc&gt;&gt; 1&lt;/<font color=#00ff00>font</font>&gt;:
-                data.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;pop&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#006ecc&gt;0&lt;/<font color=#00ff00>font</font>&gt;)
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# Wenn mehr als 2 Einträge in der Liste sind, den ältesten Eintrag entfernen&lt;/<font color=#00ff00>font</font>&gt;
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#c60000&gt;if&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;len&lt;/<font color=#00ff00>font</font>&gt;(data) &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#006ecc&gt;&gt; 1&lt;/<font color=#00ff00>font</font>&gt;:
+                data.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;pop&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#006ecc&gt;0&lt;/<font color=#00ff00>font</font>&gt;)
 
-            &lt;<font color=#00ff00>font</font> color=#b5b5b5&gt;# HTML-Datei öffnen und die Daten schreiben&lt;/<font color=#00ff00>font</font>&gt;
-            &lt;<font color=#00ff00>font</font> color=#c60000&gt;with&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> color=#B86cD6&gt;open&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#add8e6&gt;'/var/www/html/output.html'&lt;/<font color=#00ff00>font</font>&gt;,&lt;<font color=#00ff00>font</font> color=#add8e6&gt; 'w'&lt;/<font color=#00ff00>font</font>&gt;)
-            &lt;<font color=#00ff00>font</font> color=#c60000&gt;as&lt;/<font color=#00ff00>font</font>&gt; f:
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# HTML-Datei öffnen und die Daten schreiben&lt;/<font color=#00ff00>font</font>&gt;
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#c60000&gt;with&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;open&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;'/var/www/html/output.html'&lt;/<font color=#00ff00>font</font>&gt;,&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt; 'w'&lt;/<font color=#00ff00>font</font>&gt;)
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#c60000&gt;as&lt;/<font color=#00ff00>font</font>&gt; f:
                 f.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#add8e6&gt;'html&gt;body style="background-color:black;"&gt;'&lt;/<font color=#00ff00>font</font>&gt;)
                 &lt;<font color=#00ff00>font</font>=#c60000&gt;for&lt;/<font color=#00ff00>font</font>&gt; entry &lt;<font color=#00ff00>font</font> color=#006ecc&gt;in&lt;/<font color=#00ff00>font</font>&gt; data:
                     f.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(entry)

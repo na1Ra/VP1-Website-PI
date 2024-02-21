@@ -93,24 +93,24 @@
             &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# HTML-Datei öffnen und die Daten schreiben&lt;/<font color=#00ff00>font</font>&gt;
             &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#c60000&gt;with&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;open&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;'/var/www/html/output.html'&lt;/<font color=#00ff00>font</font>&gt;,&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt; 'w'&lt;/<font color=#00ff00>font</font>&gt;)
             &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#c60000&gt;as&lt;/<font color=#00ff00>font</font>&gt; f:
-                f.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#add8e6&gt;'html&gt;body style="background-color:black;"&gt;'&lt;/<font color=#00ff00>font</font>&gt;)
-                &lt;<font color=#00ff00>font</font>=#c60000&gt;for&lt;/<font color=#00ff00>font</font>&gt; entry &lt;<font color=#00ff00>font</font> color=#006ecc&gt;in&lt;/<font color=#00ff00>font</font>&gt; data:
-                    f.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(entry)
-                f.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#add8e6&gt;'/body&gt;/html&gt;'&lt;/<font color=#00ff00>font</font>&gt;)
+                f.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;'html&gt;body style="background-color:black;"&gt;'&lt;/<font color=#00ff00>font</font>&gt;)
+                &lt;<font color=#00ff00>font</font>=#c60000&gt;for&lt;/<font color=#00ff00>font</font>&gt; entry &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#006ecc&gt;in&lt;/<font color=#00ff00>font</font>&gt; data:
+                    f.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(entry)
+                f.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;write&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;'/body&gt;/html&gt;'&lt;/<font color=#00ff00>font</font>&gt;)
 
-            &lt;<font color=#00ff00>font</font> color=#c60000&gt;except&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> color=#ffa600&gt;RuntimeError&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> color=#c60000&gt;as&lt;/<font color=#00ff00>font</font>&gt; e:
-            &lt;<font color=#00ff00>font</font> color=#b5b5b5&gt;# Fehlermeldung ausgeben&lt;/<font color=#00ff00>font</font>&gt;
-            &lt;<font color=#00ff00>font</font> color=#B86cD6&gt;print&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#add8e6&gt;'Fehler beim Auslesen des Sensors:&lt;/<font color=#00ff00>font</font>&gt; {e}&lt;<font color=#00ff00>font</font> color=#add8e6&gt;'"&lt;/<font color=#00ff00>font</font>&gt;)
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#c60000&gt;except&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#ffa600&gt;RuntimeError&lt;/<font color=#00ff00>font</font>&gt; &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#c60000&gt;as&lt;/<font color=#00ff00>font</font>&gt; e:
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# Fehlermeldung ausgeben&lt;/<font color=#00ff00>font</font>&gt;
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;print&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;'Fehler beim Auslesen des Sensors:&lt;/<font color=#00ff00>font</font>&gt; {e}&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#add8e6&gt;'"&lt;/<font color=#00ff00>font</font>&gt;)
 
-                &lt;<font color=#00ff00>font</font> color=#b5b5b5&gt;# Sensor neu starten&lt;/<font color=#00ff00>font</font>&gt;
-                dht_sensor.&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;exit&lt;/<font color=#00ff00>font</font>&gt;()
-                dht_sensor &lt;<font color=#00ff00>font</font> color=#006ecc&gt;=&lt;/<font color=#00ff00>font</font>&gt; adafruit_dht.&lt;<font color=#00ff00>font</font> color=#ffa600&gt;DHT11&lt;/<font color=#00ff00>font</font>&gt;(pin)
+                &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# Sensor neu starten&lt;/<font color=#00ff00>font</font>&gt;
+                dht_sensor.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;exit&lt;/<font color=#00ff00>font</font>&gt;()
+                dht_sensor &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#006ecc&gt;=&lt;/<font color=#00ff00>font</font>&gt; adafruit_dht.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#ffa600&gt;DHT11&lt;/<font color=#00ff00>font</font>&gt;(pin)
 
-            &lt;<font color=#00ff00>font</font> color=#b5b5b5&gt;# Wartezeit erhöhen&lt;/<font color=#00ff00>font</font>&gt;
-            time.&lt;<font color=#00ff00>font</font>=#B86cD6&gt;sleep&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> color=#006ecc&gt;5&lt;/<font color=#00ff00>font</font>&gt;)
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# Wartezeit erhöhen&lt;/<font color=#00ff00>font</font>&gt;
+            time.&lt;<font color=#00ff00>font</font>=#B86cD6&gt;sleep&lt;/<font color=#00ff00>font</font>&gt;(&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#006ecc&gt;5&lt;/<font color=#00ff00>font</font>&gt;)
 
-            &lt;<font color=#00ff00>font</font> color=#b5b5b5&gt;# Beispielaufruf der Funktion&lt;/<font color=#00ff00>font</font>&gt;
-&lt;<font color=#00ff00>font</font> color=#B86cD6&gt;read_dht_sensor&lt;/<font color=#00ff00>font</font>&gt;(board.&lt;<font color=#00ff00>font</font> color=#ffa600&gt;D4&lt;/<font color=#00ff00>font</font>&gt;)
+            &lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#b5b5b5&gt;# Beispielaufruf der Funktion&lt;/<font color=#00ff00>font</font>&gt;
+&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#B86cD6&gt;read_dht_sensor&lt;/<font color=#00ff00>font</font>&gt;(board.&lt;<font color=#00ff00>font</font> <font color=#006ecc>color</font>=#ffa600&gt;D4&lt;/<font color=#00ff00>font</font>&gt;)
 
 &lt;/<font color=#00ff00>font</font>&gt;
                 &lt;/<font color=#00ff00>code</font>&gt;&lt;/<font color=#00ff00>pre</font>&gt;

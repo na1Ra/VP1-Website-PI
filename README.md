@@ -6,7 +6,7 @@ Wir haben einen DHT11-Sensor mit einem Raspberry Pi verbunden und eine Website e
 Unser Ziel war es, grundlegende Kenntnisse in Hardware, Python-Programmierung und Webentwicklung zu erlangen. Diese Dokumentation gibt einen Überblick über den Prozess und diskutiert Herausforderungen, Lösungen
 
 
-Hardware-Aufbau:
+## Hardware-Aufbau:
 
 Der Sensor hat einen Pin für Stromzufuhr, Signal und Erdung diese sind mit eine Plus ( + ), S und Minus ( - ) markiert. Der Plus Pin wird mit einem Female zu Female am Raspberry Pi an dem 3,3V Pin angeschlossen das ist der Pin 1, Signal empfehle ich an GPIO 4 bzw. Pin 5 anzuschließen einfach aus dem Grund, weil sie in der Nähe sind. Erdung wird an Ground angeschlossen das ist möglich an Pin 6, 9, 14, 20, 25, 30, 34 und 39 ich würde aber Pin 6 empfehlen um alles in einem Bereich anzuschließen.
 

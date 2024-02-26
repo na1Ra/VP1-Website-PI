@@ -17,10 +17,10 @@ Der Sensor hat einen Pin für Stromzufuhr, Signal und Erdung diese sind mit eine
 
 Betriebssystem und Software
 
-Betriebssystem:
+## Betriebssystem:
 Es gibt von Raspberry ein tolles Tool zum Installieren des Betriebssystems auf eine SD-Karte den Raspberry Pi Imager. Als Betriebssystem habe ich hier Raspbian OS verwendet die minimale Version ohne Desktop Oberfläche für die maximale Performance und minimalen Stromverbrauch. Ich verwende die 32 Bit Version da mehr vom Raspberry Pi 2 nicht unterstützt wird. Für diese Version wird eine SD-Karte mit mindestens 4 Gib benötigt ich empfehle aber mehr falls man den Pi nicht nur für dieses Projekt nutzen möchte. Um nun auf dem Pi arbeiten zu können öffnen sie ein Terminal fenster und geben ein ssh <benutzername>@<ip-vom-Pi>
 
-Software:
+## Software:
 Damit eine Webseite gehostet werden kann brauchen wir Apache2. Dies installiert man mit:
 sudo apt-get update
 sudo apt install apache2
@@ -44,7 +44,7 @@ Jetzt sollten sie bereit sein, um den Python und HTML code zu erstellen.
 
 
 
-Python Code:
+## Python Code:
 
 Dieses Python-Skript den sie unter stohatempsens.duckdns.org/temp.html  liest Temperatur- und Luftfeuchtigkeitsdaten von einem DHT-Sensor und speichert die Daten in einer HTML-Datei.
 
@@ -66,6 +66,6 @@ Die Daten aus der Liste werden dann in eine HTML-Datei geschrieben, die in einem
 
 Wenn beim Auslesen der Daten vom Sensor ein Fehler auftritt, gibt die Funktion eine Fehlermeldung aus und startet den Sensor neu.
 
-Verwendung
+## Verwendung
 
 Um das Skript zu verwenden, rufen Sie einfach die Python Datei auf mit: python <dateiname-vom-script>.py . Wenn das Skript erfolgreich gestartet wurde sollte nun im /HTML Ordner eine output.html Datei erstellt worden sein.

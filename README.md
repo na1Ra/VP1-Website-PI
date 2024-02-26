@@ -12,7 +12,8 @@ Der Sensor hat einen Pin für Stromzufuhr, Signal und Erdung diese sind mit eine
 
 
 <img src='./pi2.jpg' width=60%>
-![Raspberry Pi Bild](https://github.com/na1Ra/VP1-Website-PI/blob/main/pi2.jpg?raw=true)
+
+
 
 Betriebssystem und Software
 

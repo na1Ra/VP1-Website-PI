@@ -12,7 +12,7 @@ Der Sensor hat einen Pin für Stromzufuhr, Signal und Erdung diese sind mit eine
 
 
 <img src='./pi2.jpg' width=60%>
-
+![Raspberry Pi Bild](https://github.com/na1Ra/VP1-Website-PI/blob/main/pi2.jpg?raw=true)
 
 Betriebssystem und Software
 
@@ -68,5 +68,3 @@ Wenn beim Auslesen der Daten vom Sensor ein Fehler auftritt, gibt die Funktion e
 Verwendung
 
 Um das Skript zu verwenden, rufen Sie einfach die Python Datei auf mit: python <dateiname-vom-script>.py . Wenn das Skript erfolgreich gestartet wurde sollte nun im /HTML Ordner eine output.html Datei erstellt worden sein.
-
-![image](https://github.com/na1Ra/VP1-Website-PI/assets/36802580/be43465e-9499-412e-a173-c7642f873ac7)

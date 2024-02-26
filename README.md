@@ -46,7 +46,7 @@ Jetzt sollten sie bereit sein, um den Python und HTML code zu erstellen.
 
 ## Python Code:
 
-Dieses Python-Skript den sie unter <stohatempsens.duckdns.org/temp.html>  liest Temperatur- und Luftfeuchtigkeitsdaten von einem DHT-Sensor und speichert die Daten in einer HTML-Datei.
+Dieses Python-Skript den sie unter [stohatempsens.duckdns.org/temp.html]("stohatempsens.duckdns.org/temp.html")  liest Temperatur- und Luftfeuchtigkeitsdaten von einem DHT-Sensor und speichert die Daten in einer HTML-Datei.
 
 
 Dieses Skript verwendet die folgenden Python-Bibliotheken:

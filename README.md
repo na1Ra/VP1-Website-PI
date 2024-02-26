@@ -67,4 +67,4 @@ Wenn beim Auslesen der Daten vom Sensor ein Fehler auftritt, gibt die Funktion e
 
 ## Verwendung
 
-Um das Skript zu verwenden, rufen Sie einfach die Python Datei auf mit: python <<dateiname-vom-script>>.py . Wenn das Skript erfolgreich gestartet wurde sollte nun im /html Ordner eine output.html Datei erstellt worden sein.
+Um das Skript zu verwenden, rufen Sie einfach die Python Datei auf mit: python (dateiname-vom-script).py . Wenn das Skript erfolgreich gestartet wurde sollte nun im /html Ordner eine output.html Datei erstellt worden sein.

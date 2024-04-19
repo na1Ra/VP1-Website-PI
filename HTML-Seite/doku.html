@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <h6>
+            <pre><h3>Marc Stoppelkamp, Bastien Hanel                                                                                Documentation Temperatursensor                                                                                                 FS-22D</h3></pre>
+            
+        </h6>
+
+        <title>
+            Doku.docx
+        </title>
+
+    </head>
+<table border="2" cellpadding="10">
+    <tr>
+        <td><a href="./temp.html"><font color=#00ff00>Temperatur</font></a></td>
+    </tr>
+</table>
+<table border="2" cellpadding="10">
+    <tr>
+        <td><a href="./index.html"><font color=#00ff00>Dokumentation</font></a></td>
+    </tr>
+</table>
+<table border="2" cellpadding="10">
+    <tr>
+        <td><a href="./Webseite2.html"><font color=#00ff00>HTML Code</font></a></td>
+    </tr>
+</table>
+<table border="2" cellpadding="10">
+    <tr>
+        <td><a href="./Webseite1.html"><font color=#00ff00>Python Code</font></a></td>
+    </tr>
+</table>
+<h1 style='margin-top:18.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:27px;font-family:"Aptos Display",sans-serif;color:#0F4761;font-weight:normal;'>DHT-11 Sensor Projekt</h1>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Wir haben einen DHT11-Sensor mit einem Raspberry Pi verbunden und eine Website erstellt, um Temperatur- und Luftfeuchtigkeitsdaten anzuzeigen. Die Website ist sowohl lokal als auch &uuml;ber das Internet zug&auml;nglich.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Unser Ziel war es, grundlegende Kenntnisse in Hardware, Python-Programmierung und Webentwicklung zu erlangen. Diese Dokumentation gibt einen &Uuml;berblick &uuml;ber den Prozess wie wir diese Aufgabe l&ouml;sen konnten.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>Hardware-Aufbau</h3>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Der Sensor hat einen Pin f&uuml;r Stromzufuhr, Signal und Erdung diese sind mit eine <span style="color:#F2AA84;">Plus</span> ( + ), <span style="color:#47D45A;">S</span> und <span style="color:#4E95D9;">Minus</span> ( - ) markiert. Der Plus Pin wird mit einem Female zu Female am Raspberry Pi an dem 3,3V Pin angeschlossen das ist der Pin 1, Signal empfehle ich an GPIO 4 bzw. Pin 5 anzuschlie&szlig;en einfach aus dem Grund, weil sie in der N&auml;he sind. Erdung wird an Ground angeschlossen das ist m&ouml;glich an Pin 6, 9, 14, 20, 25, 30, 34 und 39 ich w&uuml;rde aber Pin 6 empfehlen, um alles in einem Bereich anzuschlie&szlig;en.</p>
+<img src='./pi2.jpg' width=60%>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><br></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>Betriebssystem</h3>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Es gibt von Raspberry ein tolles Tool zum Installieren des Betriebssystems auf eine SD-Karte den <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a>. Als Betriebssystem habe ich hier Raspbian OS verwendet die minimale Version ohne Desktop Oberfl&auml;che f&uuml;r die maximale Performance und minimalen Stromverbrauch. Ich verwende die 32 Bit Version da mehr vom Raspberry Pi 2 nicht unterst&uuml;tzt wird. F&uuml;r diese Version wird eine SD-Karte mit mindestens 4 Gib ben&ouml;tigt ich empfehle aber mehr falls man den Pi nicht nur f&uuml;r dieses Projekt nutzen m&ouml;chte. Um nun auf dem Pi arbeiten zu k&ouml;nnen &ouml;ffnen sie ein Terminal Fenster und geben ein ssh &lt;benutzername&gt;@&lt;ip-vom-Pi&gt;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>&nbsp;</h3>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>&nbsp;</h3>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>&nbsp;</h3>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>Software</h3>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Damit eine Webseite gehostet werden kann brauchen wir Apache2. Dies installiert man mit:</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">sudo apt-get update</span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">sudo apt install apache2 -y</span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Wenn sie das gemacht haben und erfolgreich installiert wurde k&ouml;nnen sie nun die IP Adresse des Raspberry Pis im Browser auf dem Pi aufrufen um das zu &uuml;berpr&uuml;fen. Dort finden sie auch die Dokumentation von Apachen und wie sie es nutzen. Den Speicher Ort f&uuml;r die Webseiten finden sie unter /var/www/html/. Um dort sp&auml;ter so wie der Beispiel Python Code ihre Webseiten speichern oder vom Code bearbeiten zu k&ouml;nnen m&uuml;ssen sie dem Nutzer Account, der den Code ausf&uuml;hren soll die Rechte dazu geben ich habe das mit: <span style="background:silver;">sudo chmod +w /var/www/hmtl/</span> gemacht damit wie sie sp&auml;ter sehen k&ouml;nnen auch der Python Code schreiben und lesen darf.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Python ist standartm&auml;&szlig;ig auf dem Raspberry Pi installiert es sollte trotzdem geupdatet werden mit: <span style="background:silver;">sudo apt-get update&nbsp;</span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">sudo apt-get upgrade</span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Wen das durchgelaufen ist, muss nun das ben&ouml;tigte packet installiert mit dem sie den Sensor ansprechen k&ouml;nnen: <span style="background:silver;">pip3 install adafruit-circuitpython-dht</span><br><span style="background:silver;">sudo apt-get install libgpiod2</span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Jetzt sollten sie bereit sein, um den Python und HTML code zu erstellen.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>Python Code</h3>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Dieses Python-Skript den sie unter <a href="http://wohingehts.org/Webseite1.html">wohingehts.org/Webseite1.html</a>/ finden liest Temperatur- und Luftfeuchtigkeitsdaten von einem DHT-Sensor und speichert die Daten in einer HTML-Datei.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Dieses Skript verwendet die folgenden Python-Bibliotheken:</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">adafruit_dht</span>: Zum Auslesen der Daten des DHT-Sensors</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">board</span>: Zum Zugriff auf die GPIO-Pins des Raspberry Pi</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">time</span>: Zum Hinzuf&uuml;gen einer Verz&ouml;gerung zwischen den Sensorablesungen</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Hier sind die Dokumentationen zu den Paketen, die genutzt wurden, um den Code umzusetzen:</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="color:#0F9ED5;"><a href="https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/python-setup"><span style="color:#0F9ED5;">Python Setup | DHT Humidity Sensing on Raspberry Pi or Beaglebone Black with GDocs Logging | Adafruit Learning System</span></a></span><span style="color:#0F9ED5;"><br>&nbsp;</span><span style="color:#0F9ED5;"><a href="https://pimylifeup.com/raspberry-pi-dht11-sensor/"><span style="color:#0F9ED5;">Using the DHT11 Sensor on the Raspberry Pi - Pi My Life Up</span></a></span><span style="color:#0F9ED5;"><br>&nbsp;</span><span style="color:#0F9ED5;"><a href="https://www.geeksforgeeks.org/how-to-write-to-an-html-file-in-python/"><span style="color:#0F9ED5;">How to write to an HTML file in Python ? - GeeksforGeeks</span></a></span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h4 style='margin-top:4.0pt;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;font-size:16px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;font-style:italic;'>&nbsp;</h4>
+<h4 style='margin-top:4.0pt;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;font-size:16px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;font-style:italic;'><span style="font-style:normal;">Funktionen</span></h4>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">read_dht_sensor(pin)</span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Diese Funktion liest die Temperatur- und Luftfeuchtigkeitsdaten vom DHT-Sensor, der an den angegebenen GPIO-Pin angeschlossen ist.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Die Funktion initialisiert den DHT-Sensor und liest dann kontinuierlich die Temperatur- und Luftfeuchtigkeitsdaten. Die Daten werden zusammen mit der aktuellen Uhrzeit in einer Liste gespeichert. Die Liste enth&auml;lt immer die letzten zwei Eintr&auml;ge. Wenn mehr als zwei Eintr&auml;ge in der Liste sind, wird der &auml;lteste Eintrag entfernt.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Die Daten aus der Liste werden dann in eine HTML-Datei geschrieben, die in einem Webbrowser angezeigt werden kann. Die HTML-Datei enth&auml;lt Balkendiagramme f&uuml;r Temperatur und Luftfeuchtigkeit.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Wenn beim Auslesen der Daten vom Sensor ein Fehler auftritt, gibt die Funktion eine Fehlermeldung aus und startet den Sensor neu.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>Verwendung</h3>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Um das Skript zu verwenden, rufen Sie einfach die Python Datei auf mit:</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><span style="background:silver;">python (dateiname-vom-script).py</span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Wenn das Skript erfolgreich gestartet wurde, sollte nun im /html Ordner eine output.html Datei erstellt worden sein.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>Fazit</h3>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Das Projekt, eine Temperatur&uuml;berwachung mit einem Raspberry Pi und einem DHT11-Temperatursensor umzusetzen, ist ein spannendes Klassenprojekt. Die Nutzung von Python zum Auslesen der Sensordaten erm&ouml;glicht die Visualisierung auf einer selbst erstellten HTML-Seite. Die Bereitstellung &uuml;ber einen Apache-Server erweitert das Projekt global.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<h3 style='margin-top:8.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;font-size:19px;font-family:"Aptos",sans-serif;color:#0F4761;font-weight:normal;'>Ausblick</h3>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Dank diesem Projekt konnte ich ein neues Hobby finden und habe bereits weitere Projekte angefangen, eins der Projekte ist den gleichen Temperatur Sensor zu verwenden ihn auszulesen und auf einer Website anzuzeigen. Dies habe ich mit einem Raspberry Pi Pico W umgesetzt den bekommt man schon ab 8&euro;, das Projekt kann man sich auf meiner GitHub Seite anschauen: <span style="color:#0F9ED5;"><a href="https://github.com/na1Ra/MiniTemp"><span style="color:#0F9ED5;">https://github.com/na1Ra/MiniTemp</span></a></span></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'><br>Andere Projekte bzw. Erweiterungen, die man mit dem aktuellen Stand dieses Projekts ausf&uuml;hren k&ouml;nnten, w&auml;hren z.b. Die gesammelten daten loggen, um einen Trend erkennen zu k&ouml;nnen, warn Hinweise geben, wenn die Temperatur oder Luftfeuchtigkeit im Raum zu hoch wird. Das haben ich z.b. bereits auch schon umgesetzt mit einem Discord Bot der mir eine Nachricht schickt, wenn die Luft Feuchtigkeit &uuml;ber <em>58</em>% liegt. Eine weitere M&ouml;glichkeit w&auml;re den Raspberry Pi und Sensor in das Smart Home falls vorhanden mit aufzunehmen.</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>Vorschau der Webseiten<br><a href="http://wohingehts.org/index.html"></a><a href="http://wohingehts.org/Webseite1.html"></a><a href="http://wohingehts.org/Webseite2.html"></a></p>
+<p style='margin:0cm;font-size:16px;font-family:"Aptos",sans-serif;'>&nbsp;</p>
+<img src='./htmlhtml.jpg' width=60%>
+<img src='./pythonhtml.jpg' width=60%>
+<img src='./temphtml.jpg' width=60%>

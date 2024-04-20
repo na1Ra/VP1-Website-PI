@@ -1,7 +1,6 @@
 import adafruit_dht
 import board
 import time
-from datetime import datetime
 
 def read_dht_sensor(pin):
     # DHT-Sensor initialisieren

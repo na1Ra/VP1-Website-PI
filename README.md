@@ -11,19 +11,19 @@ Unser Ziel war es, grundlegende Kenntnisse in Hardware, Python-Programmierung un
 Der Sensor hat einen Pin für Stromzufuhr, Signal und Erdung diese sind mit eine Plus ( + ), S und Minus ( - ) markiert. Der Plus Pin wird mit einem Female zu Female am Raspberry Pi an dem 3,3V Pin angeschlossen das ist der Pin 1, Signal empfehle ich an GPIO 4 bzw. Pin 5 anzuschließen einfach aus dem Grund, weil sie in der Nähe sind. Erdung wird an Ground angeschlossen das ist möglich an Pin 6, 9, 14, 20, 25, 30, 34 und 39 ich würde aber Pin 6 empfehlen um alles in einem Bereich anzuschließen.
 
 
-<img src='./pi2.jpg' width=60%>
+<img src='./Bilder/pi2.jpg' width=60%>
 
 
 
 
 ## Betriebssystem:
-Es gibt von Raspberry ein tolles Tool zum Installieren des Betriebssystems auf eine SD-Karte den Raspberry Pi Imager. Als Betriebssystem habe ich hier Raspbian OS verwendet die minimale Version ohne Desktop Oberfläche für die maximale Performance und minimalen Stromverbrauch. Ich verwende die 32 Bit Version da mehr vom Raspberry Pi 2 nicht unterstützt wird. Für diese Version wird eine SD-Karte mit mindestens 4 Gib benötigt ich empfehle aber mehr falls man den Pi nicht nur für dieses Projekt nutzen möchte. Um nun auf dem Pi arbeiten zu können öffnen sie ein Terminal fenster und geben ein ssh <benutzername>@<ip-vom-Pi>
+Es gibt von Raspberry ein tolles Tool zum Installieren des Betriebssystems auf eine SD-Karte den Raspberry Pi Imager. Als Betriebssystem habe ich hier Raspbian OS verwendet die minimale Version ohne Desktop Oberfläche für die maximale Performance und minimalen Stromverbrauch. Ich verwende die 32 Bit Version da mehr vom Raspberry Pi 2 nicht unterstützt wird. Für diese Version wird eine SD-Karte mit mindestens 4 Gib benötigt ich empfehle aber mehr falls man den Pi nicht nur für dieses Projekt nutzen möchte. Um nun auf dem Pi arbeiten zu können öffnen sie ein Terminal fenster und geben ein ssh </benutzername/>@</ip-vom-Pi/>
 
 ## Software:
 Damit eine Webseite gehostet werden kann brauchen wir Apache2. Dies installiert man mit:
 sudo apt-get update
 sudo apt install apache2
-Wenn sie das gemacht haben und erfolgreich installiert wurde können sie nun http://<ihre-ip-vom-pi> . Dort finden sie auch die Dokumentation von Apachen und wie sie es nutzen.
+Wenn sie das gemacht haben und erfolgreich installiert wurde können sie nun http://</ihre-ip-vom-pi/> . Dort finden sie auch die Dokumentation von Apachen und wie sie es nutzen.
 Den Speicher Ort für die Webseiten finden sie unter /var/www/html/ um dort ihre Webseiten speichern zu können müssen sie sich die Rechte dazu geben ich habe das mit:
 chmod -x /var/www/hmtl/ gemacht damit wie sie später sehen können auch der Python Code schreiben und lesen darf.
 
@@ -45,7 +45,7 @@ Jetzt sollten sie bereit sein, um den Python und HTML code zu erstellen.
 
 ## Python Code:
 
-Dieses Python-Skript den sie unter [stohatempsens.duckdns.org/index.html](http://stohatempsens.duckdns.org/index.html)  liest Temperatur- und Luftfeuchtigkeitsdaten von einem DHT-Sensor und speichert die Daten in einer HTML-Datei.
+Dieses Python-Skript den sie unter [wohingehts.org](http://wohingehts.org/index.html)  liest Temperatur- und Luftfeuchtigkeitsdaten von einem DHT-Sensor und speichert die Daten in einer HTML-Datei.
 
 
 Dieses Skript verwendet die folgenden Python-Bibliotheken:
@@ -67,4 +67,52 @@ Wenn beim Auslesen der Daten vom Sensor ein Fehler auftritt, gibt die Funktion e
 
 ## Verwendung
 
-Um das Skript zu verwenden, rufen Sie einfach die Python Datei auf mit: python (dateiname-vom-script).py . Wenn das Skript erfolgreich gestartet wurde sollte nun im /html Ordner eine output.html Datei erstellt worden sein.
+Um das Skript zu verwenden, rufen Sie einfach die Python Datei auf mit: 
+python (dateiname-vom-script).py
+Wenn das Skript erfolgreich gestartet wurde, sollte nun im /html Ordner eine output.html Datei erstellt worden sein.
+
+Wenn der Code auch weiterlaufen soll, wenn der Pi neustartet, kann man einen Service einrichten, der den Code im Hintergrund laufen lässt und bei Systemstart auch ohne Nutzer Anmeldung der Code gestartet wird. Das funktioniert nur wenn der Nutzer, den man angibt, auch die Berechtigungen hat auf die benötigten Python Pakete und Dateien hat. 
+
+Service Datei erstellen:
+sudo nano /etc/systemd/system/beispiel_temperatur.service
+
+Ein Beispiel Service Datei:
+```service
+[Unit]
+Description=Beispiel Service
+After=network.target
+[Service]
+WorkingDirectory=/pfad/zur/python/datei
+ExecStart=/pfad/zu/python/mit/packeten/python /pfad/zur/python/datei/beispiel-temperatur.py
+Restart=always
+User=NutzerMitDenPassendenRechten
+StandardOutput=file:/var/log/möglicher-log.log
+StandardError=file:/var/log/mögliche-error-ausgabe-error.log
+[Install]
+WantedBy=multi-user.target
+```
+
+Speichere die Datei und schließe den Texteditor. Danach aktualisiere den Systemd-Daemon:
+```batch
+sudo systemctl daemon-reload
+```
+Aktiviere und starte den Service:
+```batch
+sudo systemctl enable beispiel_temperatur.service
+sudo systemctl start discord-bot
+```
+Den Status kann man Überprüfen:
+```batch
+sudo systemctl status beispiel_temperatur.service
+```
+## Fazit
+Das Projekt, eine Temperaturüberwachung mit einem Raspberry Pi und einem DHT11-Temperatursensor umzusetzen, ist ein spannendes Klassenprojekt. Die Nutzung von Python zum Auslesen der Sensordaten ermöglicht die Visualisierung auf einer selbst erstellten HTML-Seite. Die Bereitstellung über einen Apache-Server erweitert das Projekt global. Des Weiteren bringt es einem das Linux Dateisystem und Nutzerrechte vergabe tieferes wissen in dem man es anwenden kann mit einem Visuellem Ergebnis
+
+## Ausblick
+Dank diesem Projekt konnte ich ein neues Hobby finden und habe bereits weitere Projekte angefangen, eins der Projekte ist den gleichen Temperatur Sensor zu verwenden ihn auszulesen und auf einer Website anzuzeigen. Dies habe ich mit einem Raspberry Pi Pico W umgesetzt den bekommt man schon ab 8€, das Projekt kann man sich auf meiner GitHub Seite anschauen: https://github.com/na1Ra/MiniTemp
+
+Andere Projekte bzw. Erweiterungen, die man mit dem aktuellen Stand dieses Projekts ausführen könnten, währen z.b. Die gesammelten daten loggen, um einen Trend erkennen zu können, warn Hinweise geben, wenn die Temperatur oder Luftfeuchtigkeit im Raum zu hoch wird. Das haben ich z.b. bereits auch schon umgesetzt mit einem Discord Bot der mir eine Nachricht schickt, wenn die Luft Feuchtigkeit über 58% liegt. Eine weitere Möglichkeit wäre den Raspberry Pi und Sensor in das Smart Home falls vorhanden mit aufzunehmen. 
+
+### Vorschau der Webseiten
+<img src='./Bilder/htmlhtml.png' width=60%><img src='./Bilder/pythonhtml.png' width=60%>
+<img src='./Bilder/temphtml.png' width=60%>

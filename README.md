@@ -105,13 +105,6 @@ Den Status kann man Überprüfen:
 ```batch
 sudo systemctl status beispiel_temperatur.service
 ```
-## Fazit
-Das Projekt, eine Temperaturüberwachung mit einem Raspberry Pi und einem DHT11-Temperatursensor umzusetzen, ist ein spannendes Klassenprojekt. Die Nutzung von Python zum Auslesen der Sensordaten ermöglicht die Visualisierung auf einer selbst erstellten HTML-Seite. Die Bereitstellung über einen Apache-Server erweitert das Projekt global. Des Weiteren bringt es einem das Linux Dateisystem und Nutzerrechte vergabe tieferes wissen in dem man es anwenden kann mit einem Visuellem Ergebnis
-
-## Ausblick
-Dank diesem Projekt konnte ich ein neues Hobby finden und habe bereits weitere Projekte angefangen, eins der Projekte ist den gleichen Temperatur Sensor zu verwenden ihn auszulesen und auf einer Website anzuzeigen. Dies habe ich mit einem Raspberry Pi Pico W umgesetzt den bekommt man schon ab 8€, das Projekt kann man sich auf meiner GitHub Seite anschauen: https://github.com/na1Ra/MiniTemp
-
-Andere Projekte bzw. Erweiterungen, die man mit dem aktuellen Stand dieses Projekts ausführen könnten, währen z.b. Die gesammelten daten loggen, um einen Trend erkennen zu können, warn Hinweise geben, wenn die Temperatur oder Luftfeuchtigkeit im Raum zu hoch wird. Das haben ich z.b. bereits auch schon umgesetzt mit einem Discord Bot der mir eine Nachricht schickt, wenn die Luft Feuchtigkeit über 58% liegt. Eine weitere Möglichkeit wäre den Raspberry Pi und Sensor in das Smart Home falls vorhanden mit aufzunehmen. 
 
 ### Vorschau der Webseiten
 <img src='./Bilder/htmlhtml.png' width=60%><img src='./Bilder/pythonhtml.png' width=60%>

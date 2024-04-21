@@ -105,7 +105,27 @@ Den Status kann man Überprüfen:
 ```batch
 sudo systemctl status beispiel_temperatur.service
 ```
+HTML-Seite
 
-### Vorschau der Webseiten
-<img src='./Bilder/htmlhtml.png' width=60%><img src='./Bilder/pythonhtml.png' width=60%>
-<img src='./Bilder/temphtml.png' width=60%>
+ 
+
+Auf der HTML Seite kann man die aktuelle Temperatur und die Luftfeuchtigkeit ablesen
+HTML-code:
+
+ 
+
+Auf unserer Internetseite haben wir gezeigt wie wir den Python code geschrieben und erklärt haben, dazu zeigen wir wie wir den Code für die HTML Seite für den Temperatursensor geschrieben haben.
+
+HTML Befehle:
+1.	html: Dieses Tag markiert den Anfang und das Ende eines HTML-Dokuments. Alles, was zur Webseite gehört, wird zwischen den <html> und </html> Tags eingeschlossen.
+2.	head: Innerhalb des <head> Tags werden Elemente eingeschlossen, die nicht direkt im Inhalt der Webseite erscheinen, wie Meta-Informationen, Links zu Stylesheets oder Scripts. Es ist der "Kopfbereich" der Webseite.
+3.	body: Das <body> Tag umschließt den sichtbaren Teil der Webseite, also alles, was im Browserfenster angezeigt wird (Texte, Bilder, Videos usw.).
+4.	meta: Meta-Tags liefern Meta-Daten über das HTML-Dokument, die meist von Suchmaschinen oder zum Setzen von Zeichensätzen genutzt werden. Beispiele sind Angaben wie Beschreibung der Seite, Autor des Dokuments und Kodierung.
+5.	style: Innerhalb des <style> Tags werden CSS-Anweisungen definiert, die das Aussehen von Elementen auf der Webseite beeinflussen.
+6.	font: Dieses Tag war früher gebräuchlich, um Schriftarten, -größe und -farbe zu spezifizieren, ist aber in modernem HTML veraltet und sollte durch CSS ersetzt werden.
+7.	div: Das <div> Tag wird verwendet, um einen Bereich oder eine Sektion auf einer Webseite zu definieren. Es ist ein Block-Level-Element, das häufig zur Gruppierung von Elementen verwendet wird, um sie mit CSS zu formatieren.
+8.	iframe: Ein <iframe> wird verwendet, um ein anderes HTML-Dokument innerhalb eines aktuellen Dokuments anzuzeigen. Es kann zum Einbetten von Videos, Karten oder einer anderen Webseite verwendet werden.
+9.	a: Das Anker-Tag <a> wird verwendet, um Hyperlinks zu definieren. Es ermöglicht das Verlinken zu anderen Seiten oder Ressourcen und kann mit dem href-Attribut angegeben werden, wohin der Link führen soll.
+
+
+

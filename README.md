@@ -188,17 +188,16 @@ Wenn das Skript erfolgreich gestartet wurde, sollte nun im /html Ordner eine out
 Wenn der Code auch weiterlaufen soll, wenn der Pi neustartet, kann man einen Service einrichten, der den Code im Hintergrund laufen lässt und bei Systemstart auch ohne Nutzer Anmeldung der Code gestartet wird. Das funktioniert nur wenn der Nutzer, den man angibt, auch die Berechtigungen hat auf die benötigten Python Pakete und Dateien hat. 
 
 ### Service Datei erstellen:
-`
+```
 sudo nano /etc/systemd/system/beispiel_temperatur.service
-`
+```
 
- 
 ### Service Datei erstellen:
 ```
 sudo nano /etc/systemd/system/beispiel_temperatur.service
 ```
 
-Ein Beispiel Service Datei:
+### Ein Beispiel Service Datei:
 ```service
 [Unit]
 Description=Beispiel Service
@@ -229,16 +228,16 @@ sudo systemctl status beispiel_temperatur.service
 ``` 
 ## HTML Seite
 
-<img src='./Bilder/temphtml.jpg' width=100%>  
+<img src='./Bilder/temphtml.png' width=100%>  
 
 Auf der HTML Seite kann man die aktuelle Temperatur und die Luftfeuchtigkeit ablesen
 HTML-code:
 
-<img src='./Bilder/python html code.jpg' width=60%>  
+<img src='./Bilder/python html code.png' width=60%>  
 
 Auf unserer Internetseite haben wir gezeigt wie wir den Python code geschrieben und erklärt haben, dazu zeigen wir wie wir den Code für die HTML Seite für den Temperatursensor geschrieben haben.
 
-HTML Befehle:
+## HTML Befehle:
 1.	html: Dieses Tag markiert den Anfang und das Ende eines HTML-Dokuments. Alles, was zur Webseite gehört, wird zwischen den ```<html>``` und ```<html>``` Tags eingeschlossen.
 2.	head: Innerhalb des ```<head>``` Tags werden Elemente eingeschlossen, die nicht direkt im Inhalt der Webseite erscheinen, wie Meta-Informationen, Links zu Stylesheets oder Scripts. Es ist der "Kopfbereich" der Webseite.
 3.	body: Das ```<body>``` Tag umschließt den sichtbaren Teil der Webseite, also alles, was im Browserfenster angezeigt wird (Texte, Bilder, Videos usw.).

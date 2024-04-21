@@ -1,5 +1,4 @@
-# VP1-Website-PI
-DHT-11 Sensor Projekt
+# DHT-11 Sensor Projekt
 
 Wir haben einen DHT11-Sensor mit einem Raspberry Pi verbunden und eine Website erstellt, um Temperatur- und Luftfeuchtigkeitsdaten anzuzeigen. Die Website ist sowohl lokal als auch über das Internet zugänglich.
 
@@ -21,23 +20,23 @@ Es gibt von Raspberry ein tolles Tool zum Installieren des Betriebssystems auf e
 
 ## Software:
 Damit eine Webseite gehostet werden kann brauchen wir Apache2. Dies installiert man mit:
-`
+```
 sudo apt-get update
-`
-`
+```
+```
 sudo apt install apache2
-`
-Wenn sie das gemacht haben und erfolgreich installiert wurde können sie nun http://</ihre-ip-vom-pi/> . Dort finden sie auch die Dokumentation von Apachen und wie sie es nutzen.
+```
+Wenn sie das gemacht haben und erfolgreich installiert wurde können sie nun `http://</ihre-ip-vom-pi/>` . Dort finden sie auch die Dokumentation von Apachen und wie sie es nutzen.
 Den Speicher Ort für die Webseiten finden sie unter /var/www/html/ um dort ihre Webseiten speichern zu können müssen sie sich die Rechte dazu geben ich habe das mit:
-chmod -x /var/www/hmtl/ gemacht damit wie sie später sehen können auch der Python Code schreiben und lesen darf.
+```chmod -x /var/www/hmtl/``` gemacht damit wie sie später sehen können auch der Python Code schreiben und lesen darf.
 
 Python ist standartmäßig auf dem Raspberry Pi installiert es sollte trotzdem geupdatet werden mit: 
-`
+```
 sudo apt-get update
-`
-`
+```
+```
 sudo apt-get upgrade
-`
+```
 
 Wen das durchgelaufen ist, muss nun das benötigte packet installiert mit dem sie den Sensor ansprechen können:
 sudo pip install adafruit_dht
